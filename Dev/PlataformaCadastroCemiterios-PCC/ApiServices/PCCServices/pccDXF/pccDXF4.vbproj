@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{C1890363-D9D2-4096-8B14-3E2E231E1B7A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>pccDXF4</RootNamespace>
+    <AssemblyName>pccDXF4</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>pccDXF4.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>pccDXF4.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AciColor.vb" />
+    <Compile Include="Blocks\Block.vb" />
+    <Compile Include="Blocks\BlockEnd.vb" />
+    <Compile Include="CodeValuePair.vb" />
+    <Compile Include="DxfDocument.vb" />
+    <Compile Include="DxfException.vb" />
+    <Compile Include="DxfObject.vb" />
+    <Compile Include="DxfObjectCode.vb" />
+    <Compile Include="Entities\Arc.vb" />
+    <Compile Include="Entities\Attribute.vb" />
+    <Compile Include="Entities\AttributeDefinition.vb" />
+    <Compile Include="Entities\Circle.vb" />
+    <Compile Include="Entities\Ellipse.vb" />
+    <Compile Include="Entities\EndSequence.vb" />
+    <Compile Include="Entities\Face3d.vb" />
+    <Compile Include="Entities\IEntityObject.vb" />
+    <Compile Include="Entities\Insert.vb" />
+    <Compile Include="Entities\IPolyline.vb" />
+    <Compile Include="Entities\IVertex.vb" />
+    <Compile Include="Entities\LightWeightPolyline.vb" />
+    <Compile Include="Entities\LightWeightPolylineVertex.vb" />
+    <Compile Include="Entities\Line.vb" />
+    <Compile Include="Entities\NURBSCurve.vb" />
+    <Compile Include="Entities\NurbsVertex.vb" />
+    <Compile Include="Entities\Point.vb" />
+    <Compile Include="Entities\PolyfaceMesh.vb" />
+    <Compile Include="Entities\PolyfaceMeshFace.vb" />
+    <Compile Include="Entities\PolyfaceMeshVertex.vb" />
+    <Compile Include="Entities\Polyline.vb" />
+    <Compile Include="Entities\Polyline3d.vb" />
+    <Compile Include="Entities\Polyline3dVertex.vb" />
+    <Compile Include="Entities\PolylineVertex.vb" />
+    <Compile Include="Entities\Solid.vb" />
+    <Compile Include="Entities\Text.vb" />
+    <Compile Include="Entities\Vertex.vb" />
+    <Compile Include="Header\DxfVersion.vb" />
+    <Compile Include="Header\HeaderVariable.vb" />
+    <Compile Include="Header\SystemVariable.vb" />
+    <Compile Include="MathHelper.vb" />
+    <Compile Include="Matrix3d.vb" />
+    <Compile Include="Matrix3f.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Objects\Dictionary.vb" />
+    <Compile Include="Reader.vb" />
+    <Compile Include="StringCode.vb" />
+    <Compile Include="StringEnum.vb" />
+    <Compile Include="SubclassMarker.vb" />
+    <Compile Include="Symbols.vb" />
+    <Compile Include="Tables\ApplicationRegistry.vb" />
+    <Compile Include="Tables\BlockRecord.vb" />
+    <Compile Include="Tables\DimensionStyle.vb" />
+    <Compile Include="Tables\ITableObject.vb" />
+    <Compile Include="Tables\Layer.vb" />
+    <Compile Include="Tables\LineType.vb" />
+    <Compile Include="Tables\TextStyle.vb" />
+    <Compile Include="Tables\View.vb" />
+    <Compile Include="Tables\ViewPort.vb" />
+    <Compile Include="TextAligment.vb" />
+    <Compile Include="Vector2d.vb" />
+    <Compile Include="Vector2f.vb" />
+    <Compile Include="Vector3d.vb" />
+    <Compile Include="Vector3f.vb" />
+    <Compile Include="Writer.vb" />
+    <Compile Include="XData.vb" />
+    <Compile Include="XDataCode.vb" />
+    <Compile Include="XDataRecord.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

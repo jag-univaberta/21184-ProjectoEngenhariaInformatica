@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "ACadSharp/2.3.0-beta": {
+        "runtime": {
+          "ACadSharp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ACadSharp/2.3.0-beta": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@SIGApi_HostAddress = http://localhost:5093
+
+GET {{SIGApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

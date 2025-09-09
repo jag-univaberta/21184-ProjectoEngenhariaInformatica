@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9DBE5C25-E949-4398-A92D-052E75A96305}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>pccMap4</RootNamespace>
+    <AssemblyName>pccMap4</AssemblyName>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>pccMap4.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>pccMap4.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="OSGeo.MapGuide.Foundation, Version=4.0.0.10048, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DllsMapguide4_64bits\OSGeo.MapGuide.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.Geometry, Version=4.0.0.10048, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DllsMapguide4_64bits\OSGeo.MapGuide.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.MapGuideCommon, Version=4.0.0.10048, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DllsMapguide4_64bits\OSGeo.MapGuide.MapGuideCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.PlatformBase, Version=4.0.0.10048, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DllsMapguide4_64bits\OSGeo.MapGuide.PlatformBase.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.Web, Version=4.0.0.10048, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DllsMapguide4_64bits\OSGeo.MapGuide.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="pccMap4.vb" />
+    <Compile Include="pccMapa4_aux.vb" />
+    <Compile Include="LayerDefinition-1_1_0.vb" />
+    <Compile Include="LayerDefinition-1_2_0.vb" />
+    <Compile Include="LayerDefinition-1_3_0.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="diagrams\g10Map.cd" />
+    <None Include="Mapguide32bits\MapGuideDotNetApi.dll.ff" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mapguide32bits\ACE.dll" />
+    <Content Include="Mapguide32bits\FoundationUnmanagedApi.dll" />
+    <Content Include="Mapguide32bits\GeometryUnmanagedApi.dll" />
+    <Content Include="Mapguide32bits\GEOS.dll" />
+    <Content Include="Mapguide32bits\lib_json.dll" />
+    <Content Include="Mapguide32bits\MapGuideCommonUnmanagedApi.dll" />
+    <Content Include="Mapguide32bits\MgFoundation.dll" />
+    <Content Include="Mapguide32bits\MgGeometry.dll" />
+    <Content Include="Mapguide32bits\MgHttpHandler.dll" />
+    <Content Include="Mapguide32bits\MgMapGuideCommon.dll" />
+    <Content Include="Mapguide32bits\MgMdfModel.dll" />
+    <Content Include="Mapguide32bits\MgMdfParser.dll" />
+    <Content Include="Mapguide32bits\MgPlatformBase.dll" />
+    <Content Include="Mapguide32bits\MgWebApp.dll" />
+    <Content Include="Mapguide32bits\MgWebSupport.dll" />
+    <Content Include="Mapguide32bits\OSGeo.MapGuide.Foundation.dll" />
+    <Content Include="Mapguide32bits\OSGeo.MapGuide.Foundation.xml" />
+    <Content Include="Mapguide32bits\OSGeo.MapGuide.Geometry.dll" />
+    <Content Include="Mapguide32bits\OSGeo.MapGuide.Geometry.xml" />
+    <Content Include="Mapguide32bits\OSGeo.MapGuide.MapGuideCommon.dll" />
+    <Content Include="Mapguide32bits\OSGeo.MapGuide.MapGuideCommon.xml" />
+    <Content Include="Mapguide32bits\OSGeo.MapGuide.PlatformBase.dll" />
+    <Content Include="Mapguide32bits\OSGeo.MapGuide.PlatformBase.xml" />
+    <Content Include="Mapguide32bits\OSGeo.MapGuide.Web.dll" />
+    <Content Include="Mapguide32bits\OSGeo.MapGuide.Web.xml" />
+    <Content Include="Mapguide32bits\PlatformBaseUnmanagedApi.dll" />
+    <Content Include="Mapguide32bits\readme.txt" />
+    <Content Include="Mapguide32bits\WebUnmanagedApi.dll" />
+    <Content Include="Mapguide32bits\xerces-c_3_1mg.dll" />
+    <Content Include="Mapguide64bits\ACE.dll" />
+    <Content Include="Mapguide64bits\FoundationUnmanagedApi.dll" />
+    <Content Include="Mapguide64bits\GeometryUnmanagedApi.dll" />
+    <Content Include="Mapguide64bits\GEOS.dll" />
+    <Content Include="Mapguide64bits\lib_json.dll" />
+    <Content Include="Mapguide64bits\MapGuideCommonUnmanagedApi.dll" />
+    <Content Include="Mapguide64bits\MgFoundation.dll" />
+    <Content Include="Mapguide64bits\MgGeometry.dll" />
+    <Content Include="Mapguide64bits\MgHttpHandler.dll" />
+    <Content Include="Mapguide64bits\MgMapGuideCommon.dll" />
+    <Content Include="Mapguide64bits\MgMdfModel.dll" />
+    <Content Include="Mapguide64bits\MgMdfParser.dll" />
+    <Content Include="Mapguide64bits\MgPlatformBase.dll" />
+    <Content Include="Mapguide64bits\MgWebApp.dll" />
+    <Content Include="Mapguide64bits\MgWebSupport.dll" />
+    <Content Include="Mapguide64bits\OSGeo.MapGuide.Foundation.dll" />
+    <Content Include="Mapguide64bits\OSGeo.MapGuide.Foundation.xml" />
+    <Content Include="Mapguide64bits\OSGeo.MapGuide.Geometry.dll" />
+    <Content Include="Mapguide64bits\OSGeo.MapGuide.Geometry.xml" />
+    <Content Include="Mapguide64bits\OSGeo.MapGuide.MapGuideCommon.dll" />
+    <Content Include="Mapguide64bits\OSGeo.MapGuide.MapGuideCommon.xml" />
+    <Content Include="Mapguide64bits\OSGeo.MapGuide.PlatformBase.dll" />
+    <Content Include="Mapguide64bits\OSGeo.MapGuide.PlatformBase.xml" />
+    <Content Include="Mapguide64bits\OSGeo.MapGuide.Web.dll" />
+    <Content Include="Mapguide64bits\OSGeo.MapGuide.Web.xml" />
+    <Content Include="Mapguide64bits\PlatformBaseUnmanagedApi.dll" />
+    <Content Include="Mapguide64bits\WebUnmanagedApi.dll" />
+    <Content Include="Mapguide64bits\xerces-c_3_1mg.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\pccBase\pccBase4.vbproj">
+      <Project>{9ca1d29b-9d27-499a-9cd8-faec8a030b5a}</Project>
+      <Name>pccBase4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\pccDB\pccDB4.vbproj">
+      <Project>{182e52f6-3c16-4e77-a6ec-55dc531756c7}</Project>
+      <Name>pccDB4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\pccGeoMetadata\pccGeoMetadata4.vbproj">
+      <Project>{769702c3-2645-4e2a-b977-13c9aac47415}</Project>
+      <Name>pccGeoMetadata4</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

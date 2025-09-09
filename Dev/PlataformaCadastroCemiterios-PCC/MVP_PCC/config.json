@@ -1,0 +1,10 @@
+  {
+    "apiEndpoint": "http://localhost:5093/api/",   
+    "apiEndpointSIG": "http://localhost:5096/api/",    
+    "apiEndpointCadastro": "http://localhost:5094/api/",   
+    "apiEndpointDocumentos": "http://localhost:5095/api/", 
+    "fusionroot" : "http://112.115.117.33/mapguide/fusion/.",
+    "mapagenturl" : "http://112.115.117.33/mapguide/mapagent/mapagent.fcgi",
+    "mapa" : "Library://Projeto_PCC/Layouts/PCC_Vieiro.WebLayout",
+    "aplicationtoken" : "84405d19-b8fd-2d98-cb89-20264413b213"
+  }

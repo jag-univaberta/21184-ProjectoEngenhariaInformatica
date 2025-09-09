@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{194CEE63-95AC-4211-B708-A398E2595B08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>g10phPDF4</RootNamespace>
+    <AssemblyName>g10phPDF4</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>g10phPDF4.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>g10phPDF4.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>g10phPDF4.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>g10phPDF4.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>DLL\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="O2S.Components.PDF4NET, Version=4.6.2.0, Culture=neutral, PublicKeyToken=80d03dd9e5b85317, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\O2S.Components.PDF4NET.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.Foundation">
+      <HintPath>DLL\OSGeo.MapGuide.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.Geometry, Version=2.4.0.7096, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\OSGeo.MapGuide.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.MapGuideCommon, Version=2.4.0.7096, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\OSGeo.MapGuide.MapGuideCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.PlatformBase, Version=2.4.0.7096, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\OSGeo.MapGuide.PlatformBase.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.Web, Version=2.4.0.7096, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\OSGeo.MapGuide.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="phPaginacao.vb" />
+    <Compile Include="Documentacao.vb" />
+    <Compile Include="gisACCESS.vb" />
+    <Compile Include="gisDEFAULT.vb" />
+    <Compile Include="gisMAPFRAME.vb" />
+    <Compile Include="gisRELACOES.vb" />
+    <Compile Include="gisSISTEMAS.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PdfMerger.vb" />
+    <Compile Include="PedidoDocumento.vb" />
+    <Compile Include="phACOMPANHAMENTO.vb" />
+    <Compile Include="phAPPSUPORTE.vb" />
+    <Compile Include="phARRAY.vb" />
+    <Compile Include="phATRIBUTOS.vb" />
+    <Compile Include="phBASE.vb" />
+    <Compile Include="phCRIPTO.vb" />
+    <Compile Include="phDATACAT.vb" />
+    <Compile Include="phDATADEV.vb" />
+    <Compile Include="phDATAIF.vb" />
+    <Compile Include="phDATASPEC.vb" />
+    <Compile Include="phESTRUTURA.vb" />
+    <Compile Include="phFILE.vb" />
+    <Compile Include="phFISICA.vb" />
+    <Compile Include="phLOG.vb" />
+    <Compile Include="phPDF.vb" />
+    <Compile Include="phPERFIL.vb" />
+    <Compile Include="phPLUGIN.vb" />
+    <Compile Include="phREPORT.vb" />
+    <Compile Include="phSCRIPTED.vb" />
+    <Compile Include="phSEGURANÇA.vb" />
+    <Compile Include="phSETFRAME.vb" />
+    <Compile Include="phSHELL.vb" />
+    <Compile Include="phSTRING.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="rgb.icc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\g10DB\g10DB4.vbproj">
+      <Project>{182e52f6-3c16-4e77-a6ec-55dc531756c7}</Project>
+      <Name>g10DB4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\g10GeoMetadata\g10GeoMetadata4.vbproj">
+      <Project>{769702c3-2645-4e2a-b977-13c9aac47415}</Project>
+      <Name>g10GeoMetadata4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\g10Map\g10Map4.vbproj">
+      <Project>{9dbe5c25-e949-4398-a92d-052e75a96305}</Project>
+      <Name>g10Map4</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

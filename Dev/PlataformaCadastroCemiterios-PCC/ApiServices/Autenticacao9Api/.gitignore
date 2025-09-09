@@ -1,0 +1,7 @@
+# Comentário: Ignorar ficheiros de log
+#*.log
+#debug.log
+
+# Ignorar pasta de dependências do Node.js
+.vs/
+.obj/

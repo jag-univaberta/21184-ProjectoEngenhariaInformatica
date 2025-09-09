@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    //Library://Gismat_WEB/Layout/Gismat_Web3857.WebLayout
+    //?resource=Library://Lagos_SMLSIG01/Maps/Mapa.WebLayout
+
+    //    "url1": "http://112.115.117.33:5570/index.html?ss=7a7b72ba-25f8-4d97-88c4-841e72e077fc",
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Run Chrome",
+            "url": "http://112.115.117.33:5580/index.html?ss=7ca88e78-80a3-40ff-ac51-73c91dd5e85f",
+            "runtimeArgs": [
+                "--disable-web-security"
+             ],
+            "webRoot": "${workspaceFolder}" 
+        } ,
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Run Edge",
+            "url": "http://112.115.117.33:5580/index.html?ss=7ca88e78-80a3-40ff-ac51-73c91dd5e85f",
+            "runtimeArgs": [
+                "--disable-web-security"
+            ],
+            "webRoot": "${workspaceFolder}"
+        } 
+    ]
+}

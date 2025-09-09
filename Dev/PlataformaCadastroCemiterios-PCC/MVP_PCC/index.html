@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="José Augusto Azevedo - Aluno nº 2200655 - Projeto de Engenharia Informática - 2024/25">
+        <title>PCC - APP</title>
+        <link href="https://cdn.materialdesignicons.com/3.6.95/css/materialdesignicons.min.css?v=6.4.2" media="all" rel="stylesheet" type="text/css">    
+        <link rel="stylesheet"  href="css/fontawesome-free-5.15.4-web/css/all.min.css"/>        
+        <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"/>
+        <link rel="stylesheet" href="dist/pccv4.css" />
+        <link rel="stylesheet" href="dist/viewer.css" type="text/css" />
+        <link rel="stylesheet" href="css/sidebar.css" type="text/css" />        
+        <link rel="stylesheet" href="css/logos.css" type="text/css" /> 
+        <script type="text/javascript" src="dist/pccv4.js"></script>
+        <script type="text/javascript" src="dist/viewer.js"></script>
+        <script type="text/javascript" src="dist/suite.js?v=8.2.0"></script>
+		<link rel="stylesheet" href="dist/suite.css?v=8.2.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+        <link rel="stylesheet" href="dist/dhtmlx_8.2_codebase/suite.css"  type="text/css"/> 
+        <script src="dist/dhtmlx_8.2_codebase/suite.js" type="text/javascript"></script>
+        <style type="text/css">
+            html, body, #map { 
+                padding: 0; 
+                margin: 0; 
+                font-size: 10pt;
+                font-family: SegoeUI-SemiBold-final,Segoe UI Semibold,SegoeUI-Regular-final,Segoe UI,"Segoe UI Web (West European)",Segoe,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Tahoma,Helvetica,Arial,sans-serif;
+            }
+            body { overflow: hidden; }
+            #map { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+            .component-mouse-coordinates, .component-scale-display, .component-selected-feature-count {
+                background-color: #652ebd;  
+            }
+            .component-mouse-coordinates{
+                position: fixed; 
+                right: 10px;
+                bottom: 0px;
+                width:fit-content;
+                top:unset;
+            }
+            .component-base-layer-switcher-display{
+                background-color: #652ebd; 
+                color: white;
+                position: fixed; 
+                right: 540px;
+                bottom: 0px;
+                width:fit-content;
+                top:unset;
+            }
+            .ol-control button{
+                background-color: #423e3e!important;
+            }
+            .dhx-tooltip { 
+                z-index: 999999!important;;
+            }            
+            .loginpage{
+                position: absolute;
+                background-position: center center;
+                background-size: cover;
+                background-image: url("static/login_background.png");
+                width: 100%;
+                height: 100%;
+            } 
+            .logocontainer {
+                position: relative;
+            }            
+            .logincontainer {
+                position: relative;
+                top: 30%;
+            }
+            .top-right {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 275px;
+            }
+            .ol-overviewmap{
+                display:none; 
+            }
+            .ol-attribution{
+                display:none;  
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div> 
+        <div class="login-pcc" id="about-popup" style="display:none;">
+            <div class="app-card-login mdl-card mdl-shadow--2dp" id="title_about">
+                <div class="mdl-card__title">
+                    <img src="static/uablogo.png" alt="Logo UAB" width="150">
+                    <h2 id="pcc-title">Projecto Cadastro Cemitérios</h2> 
+                </div>
+                <div class="mdl-card__supporting-text">
+                    José Augusto Azevedo<br />
+                    Aluno nº 2200655<br /><br /><br />
+                    Licenciatura em Engenharia Informática<p></p><p></p>
+                    2025<br />
+                    <p></p><p></p>
+                    <br />
+                    <p></p><p></p>  
+                    <span id="pcc-title2" style = "display: block;">Projecto Cadastro Cemitérios</span>
+                    <span style = "display: block;">Versão 2025.07.31 </span>
+                    <br/> 
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="toggle_visibility('about-popup'); toggle_visibility('blur-bckg');">FECHAR</a>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function toggle_visibility(id) {
+                var texto = $('.nametop-left').text();
+                $('#pcc-title').text(texto);
+                $('#pcc-title2').text('Projecto Cadastro Cemitérios ' + texto);
+                var e = document.getElementById(id);
+                e.style.display = ((e.style.display != 'none') ? 'none' : 'block');
+            }          
+            $(document).ready(function() {               
+                // Seleciona o elemento com a classe .apps e define o evento de clique
+                $('#map').on('click', '.apps', function() {
+                    toggle_visibility('about-popup');
+                });
+            });
+
+            var globalWindowReference;
+            var el = document.getElementById("map");
+            var viewer = new MapGuide.Application();
+            var int_draw = null;
+            var mapagenturl ="";
+            var mapa = "";
+            var dxboardurl="";
+            //definir as projecções para não ter que ir ao site epsg.io às vezes dá erro de CORS
+            MapGuide.Externals.proj4.defs("EPSG:3763","+proj=tmerc +lat_0=39.6682583333333 +lon_0=-8.13310833333333 +k=1 +x_0=0 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs +type=crs");
+            MapGuide.Externals.proj4.defs("EPSG:27493","+proj=tmerc +lat_0=39.6666666666667 +lon_0=-8.13190611111111 +k=1 +x_0=180.598 +y_0=-86.99 +ellps=intl +towgs84=-239.749,88.181,30.488,-0.263,-0.082,-1.211,2.229 +units=m +no_defs +type=crs");
+            MapGuide.Externals.proj4.defs("EPSG:3857","+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs +type=crs");
+
+            // Cria um objeto XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'config.json', true);
+            xhr.setRequestHeader('Content-type', 'application/json');
+
+            // Manipula a resposta quando ela chegar
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // urlSessionId
+                    var config = JSON.parse(xhr.responseText);
+                    sessionId = sessionStorage.getItem('sessionId');
+                    if (!sessionId) {
+                        // Se não há sessionId no sessionStorage, obtenha-o da URL
+                        sessionId = getUrlParameter('ss'); 
+                        // Se o sessionId foi obtido da URL, é armazenado no sessionStorage
+                        if (sessionId) {
+                            sessionStorage.setItem('sessionId', sessionId);
+                        } else {
+                            // Se o sessionId ainda não está disponível, redirecione após 1 segundo
+                            setTimeout(function() {window.location.href = config.dxboardurl;}, 1000);
+                            return null; // Retorna null porque a página será redirecionada
+                        }
+                    }
+                    // Analisa a resposta em JSON
+                    // Usa as configurações lidas do arquivo JSON                  
+                    //console.log(config);
+                    fusionroot = config.fusionroot;
+                    mapagenturl = config.mapagenturl;
+                    mapa = config.mapa;
+                    dxboardurl = config.dxboardurl;
+                    
+                    viewer.mount(el, {
+                        layout: "pcc-template",
+                        externalBaseLayers: [
+                            { name: "OpenStreetMap", kind: "OSM" , visible: false},
+                            { name: "Google Satellite", kind: "XYZ", visible: false, 
+                                options: { url: "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}", minZoom: 0,  maxZoom: 20 }
+                            },
+                            { name: "Google Road", kind: "XYZ", visible: false,
+                                options: { url: "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",  minZoom: 0,  maxZoom: 20 }
+                            },
+                            { name: "OpenTopoMap", kind: "XYZ", visible: false,
+                                options: {  url: "https://a.tile.opentopomap.org/{z}/{x}/{y}.png",  minZoom: 0,  maxZoom: 17 }
+                            },
+                        ],
+                        mapguide: {
+                            fusionRoot: fusionroot, //"http://servidor/mapguide/fusion/.",
+                            agentUri: mapagenturl //"http://servidor/mapguide/mapagent/mapagent.fcgi"         
+                        },
+                        resourceId: mapa, //"Library://Projecto/Mapas/Mapa.WebLayout",
+                        locale:"pt",                    
+                    });
+                }
+                else {
+                    console.log('Erro ao ler arquivo JSON');
+                }
+            };
+            // Envia o pedido para obter configurações do config.json
+            xhr.send();
+ 
+            var sessionId;
+            // Definir as interacções do Open Layers
+            var viewer_interface = null;
+            var LAYER_NAME = "Construcoes";
+            var layerAdded = false;
+            var customLayer = null;
+            var factory = null;
+       
+            window.onunload = function() {
+                try{ detachInteractions(); }catch(e){}                
+            };
+            // Função para onter um valor de um parametro do URL por nome 
+            function getUrlParameter(name) {
+                name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                const newUrl = location.href.replace(location.search, '');
+                history.replaceState({}, document.title, newUrl);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }            
+        </script>
+    </body>
+</html>

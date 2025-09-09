@@ -1,0 +1,59 @@
+create table acesso.grupos(
+  rec_id serial NOT NULL,
+  nome character varying(100) NOT NULL,
+  activo boolean DEFAULT TRUE,
+  CONSTRAINT grupos_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE acesso.grupos OWNER TO postgres;
+
+create table acesso.utilizadores(
+  rec_id serial NOT NULL,
+  nome character varying(100) NOT NULL,
+  utilizador character varying(100) NOT NULL,
+  palavra_passe character varying(100) NOT NULL,
+  email character varying(100) NOT NULL,
+  activo boolean DEFAULT TRUE,
+  CONSTRAINT utilizadores_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE acesso.utilizadores OWNER TO postgres;
+
+create table acesso.grupos_utilizadores(
+  rec_id serial NOT NULL,
+  utilizador_id integer NOT NULL,
+  grupo_id integer NOT NULL,
+  CONSTRAINT grupos_utilizadores_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE acesso.grupos_utilizadores OWNER TO postgres;
+
+create table acesso.funcionalidades(
+  codigo_funcionalidade integer NOT NULL,
+  designacao character varying (100) NOT NULL,
+  codigo_pai integer,
+  CONSTRAINT funcionalidades_pkey PRIMARY KEY (codigo_funcionalidade)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE acesso.funcionalidades OWNER TO postgres;
+
+create table acesso.permissoes(
+  rec_id serial NOT NULL,
+  utilizador_id integer NOT NULL,
+  grupo_id integer NOT NULL,
+  funcionalidade_id integer NOT NULL,
+  permissao boolean DEFAULT TRUE,
+  CONSTRAINT permissoes_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE acesso.permissoes OWNER TO postgres;

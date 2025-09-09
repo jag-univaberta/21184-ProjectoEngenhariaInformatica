@@ -1,0 +1,126 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.15" />
+    <PackageReference Include="Microsoft.AspNetCore.HttpOverrides" Version="2.3.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite" Version="9.0.4" />
+    <PackageReference Include="Npgsql.NetTopologySuite" Version="9.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\pccMap\pccMap.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="OSGeo.MapGuide.Foundation">
+      <HintPath>DllsMapguide4_64bits\OSGeo.MapGuide.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.Geometry">
+      <HintPath>DllsMapguide4_64bits\OSGeo.MapGuide.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.MapGuideCommon">
+      <HintPath>DllsMapguide4_64bits\OSGeo.MapGuide.MapGuideCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.PlatformBase">
+      <HintPath>DllsMapguide4_64bits\OSGeo.MapGuide.PlatformBase.dll</HintPath>
+    </Reference>
+    <Reference Include="OSGeo.MapGuide.Web">
+      <HintPath>DllsMapguide4_64bits\OSGeo.MapGuide.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DllsMapguide4_64bits\ACE.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\FoundationUnmanagedApi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\GeometryUnmanagedApi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\GEOS.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\lib_json.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\MapGuideCommonUnmanagedApi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\MgFoundation.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\MgGeometry.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\MgHttpHandler.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\MgMapGuideCommon.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\MgMdfModel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\MgMdfParser.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\MgPlatformBase.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\MgWebApp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\MgWebSupport.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\OSGeo.MapGuide.Foundation.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\OSGeo.MapGuide.Geometry.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\OSGeo.MapGuide.MapGuideCommon.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\OSGeo.MapGuide.PlatformBase.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\OSGeo.MapGuide.Web.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\PlatformBaseUnmanagedApi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\WebUnmanagedApi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DllsMapguide4_64bits\xerces-c_3_1mg.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
+</Project>

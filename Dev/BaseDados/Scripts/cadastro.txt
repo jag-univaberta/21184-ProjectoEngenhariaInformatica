@@ -1,0 +1,136 @@
+/*CREATE EXTENSION postgis;*/
+  
+create table cadastro.construcoes(
+  rec_id serial NOT NULL,
+  tipoconstrucao_id integer NOT NULL,
+  designacao character varying(100) NOT NULL,
+  talhao_id integer NOT NULL,
+  geometria geometry, 
+  CONSTRAINT construcoes_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cadastro.construcoes OWNER TO postgres;
+
+CREATE INDEX construcoes_gis
+  ON cadastro.construcoes
+  USING gist
+  (geometria);
+
+
+create table cadastro.cemiterios(
+  rec_id serial NOT NULL,
+  nome character varying(100) NOT NULL,
+  morada character varying(100) NOT NULL,
+  dicofre character varying(100) NOT NULL, 
+  CONSTRAINT cemiterios_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cadastro.cemiterios OWNER TO postgres;
+
+create table cadastro.talhao(
+  rec_id serial NOT NULL,
+  codigo character varying(100) NOT NULL,
+  cemiterio_id integer NOT NULL,
+  geometria geometry,  
+  CONSTRAINT talhao_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cadastro.talhao OWNER TO postgres;
+CREATE INDEX talhao_gis
+  ON cadastro.talhao
+  USING gist
+  (geometria);
+
+create table cadastro.tipos_construcao(
+  rec_id serial NOT NULL,
+  designacao character varying(100) NOT NULL,
+  CONSTRAINT tipos_construcao_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cadastro.tipos_construcao OWNER TO postgres;  
+
+create table cadastro.concessionarios(
+  rec_id serial NOT NULL,
+  nome character varying(100) NOT NULL,
+  morada character varying(100) NOT NULL,
+  dicofre character varying(100) NOT NULL, 
+  contacto character varying(100) NOT NULL, 
+  CONSTRAINT concessionarios_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cadastro.concessionarios OWNER TO postgres;
+
+create table cadastro.construcoes_concessionarios(
+  rec_id serial NOT NULL,
+  concessionario_id integer NOT NULL,
+  construcao_id integer NOT NULL,
+  data_inicio character varying(8) NOT NULL,
+  data_fim character varying(8), 
+  CONSTRAINT construcoes_concessionarios_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cadastro.construcoes_concessionarios OWNER TO postgres;
+
+create table cadastro.tipos_movimentos(
+  rec_id serial NOT NULL,
+  designacao character varying(100) NOT NULL,
+  CONSTRAINT tipos_movimentos_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cadastro.tipos_movimentos OWNER TO postgres;  
+
+
+create table cadastro.residentes(
+  rec_id serial NOT NULL,
+  nome character varying(100) NOT NULL,
+  data_nascimento character varying(8), 
+  data_falecimento character varying(8), 
+  data_inumacao character varying(8), 
+  CONSTRAINT residentes_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cadastro.residentes OWNER TO postgres;  
+
+create table cadastro.movimentos(
+  rec_id serial NOT NULL, 
+  data_movimento character varying(8) NOT NULL, 
+  residente_id integer NOT NULL, 
+  tipomovimento_id integer NOT NULL,
+  construcaodestino_id integer NOT NULL, 
+  CONSTRAINT movimentos_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cadastro.movimentos OWNER TO postgres;  
+
+create table cadastro.ficheiros_associados(
+  rec_id serial NOT NULL,
+  nome_documento character varying(100) NOT NULL,
+  nome_atribuido character varying(64)  NOT NULL,
+  descricao_documento  character varying(100) NOT NULL,
+  datahoraupload character varying(14), 
+  tipo_associacao character varying(20), 
+  codigo_associacao integer NOT NULL, 
+  CONSTRAINT ficheiros_associados_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cadastro.ficheiros_associados OWNER TO postgres;  

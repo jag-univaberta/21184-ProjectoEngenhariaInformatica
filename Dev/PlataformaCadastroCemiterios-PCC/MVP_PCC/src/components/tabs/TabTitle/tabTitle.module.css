@@ -1,0 +1,7 @@
+.tabtitle button {
+  font-size: 20px;
+}
+
+.tabtitle[class~='active'] button {
+  color: #190ebd;
+}

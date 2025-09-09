@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LayerDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="LayerDefinition-2.4.0.xsd" version="2.4.0">
+  <VectorLayerDefinition>
+    <ResourceId>%resourceid%</ResourceId>
+    <FeatureName>%featurename%</FeatureName>
+    <FeatureNameType>FeatureClass</FeatureNameType>
+    <Geometry>GEOM</Geometry>
+	<ToolTip>Area2D(%tooltip%)</ToolTip>
+	<VectorScaleRange>
+      <AreaTypeStyle>
+        <AreaRule>
+          <LegendLabel/>
+          <AreaSymbolization2D>
+            <Fill>
+              <FillPattern>Shapefill46</FillPattern>
+              <ForegroundColor>%cor%</ForegroundColor>
+              <BackgroundColor>7FFFFFFF</BackgroundColor>
+            </Fill>
+            <Stroke>
+              <LineStyle>Solid</LineStyle>
+              <Thickness>1</Thickness>
+              <Color>%cor%</Color>
+              <Unit>Points</Unit>
+              <SizeContext>DeviceUnits</SizeContext>
+            </Stroke>
+          </AreaSymbolization2D>
+        </AreaRule>
+      </AreaTypeStyle>
+    </VectorScaleRange>
+  </VectorLayerDefinition>
+</LayerDefinition>

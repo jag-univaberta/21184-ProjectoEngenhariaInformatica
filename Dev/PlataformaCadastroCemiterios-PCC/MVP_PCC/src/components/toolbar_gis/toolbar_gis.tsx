@@ -1,0 +1,74 @@
+import * as React from "react";
+import {
+    ICommand,
+    IDOMElementMetrics,
+    FlyoutVisibilitySet
+} from "mapguide-react-layout/lib/api/common";
+import { mapToolbarReference } from "mapguide-react-layout/lib/api/registry/command";
+//import { Toolbar, DEFAULT_TOOLBAR_SIZE } from "mapguide-react-layout/lib/components/toolbar";
+import { processMenuItems } from "mapguide-react-layout/lib/utils/menu";
+import { useReducedToolbarAppState } from 'mapguide-react-layout/lib/containers/hooks';
+import { invokeCommand } from 'mapguide-react-layout/lib/actions/map';
+import { openFlyout, closeFlyout, openComponent, closeComponent } from "mapguide-react-layout/lib/actions/flyout";
+import { useAppState, useReduxDispatch } from "mapguide-react-layout/lib/components/map-providers/context";
+
+import { ToolbarGISComponent, DEFAULT_TOOLBAR_SIZE } from "./toolbar_giscomp";
+
+export interface IToolbarContainerProps {
+    id: string;
+    vertical?: boolean;
+    hideVerticalLabels?: boolean;
+    containerClass?: string;
+    containerStyle?: React.CSSProperties;
+}
+
+export const ToolbarGISContainer = (props: IToolbarContainerProps) => {
+    const { containerClass, containerStyle, vertical, hideVerticalLabels } = props;
+    const dispatch = useReduxDispatch();
+    const flyouts = useAppState<any>(state => state.toolbar.flyouts);
+    const toolbar = useAppState<any>(state => state.toolbar.toolbars[props.id]);
+    const tbState = useReducedToolbarAppState();
+
+    const invokeCommandAction = (cmd: ICommand, parameters: any) => dispatch(invokeCommand(cmd, parameters));
+    const openFlyoutAction = (id: string, metrics: IDOMElementMetrics) => dispatch(openFlyout(id, metrics));
+    const closeFlyoutAction = (id: string) => dispatch(closeFlyout(id));
+    const openComponentAction = (id: string, metrics: IDOMElementMetrics, name: string, props?: any) => dispatch(openComponent(id, metrics, name, props));
+    const closeComponentAction = (id: string) => dispatch(closeComponent(id));
+
+    const onCloseFlyout = (id: string) => closeFlyoutAction?.(id);
+    const onOpenFlyout = (id: string, metrics: IDOMElementMetrics) => openFlyoutAction?.(id, metrics);
+    const onOpenComponent = (id: string, metrics: IDOMElementMetrics, name: string, props?: any) => openComponentAction?.(id, metrics, name, props);
+    const onCloseComponent = (id: string) => closeComponentAction?.(id);
+
+    const flyoutStates: FlyoutVisibilitySet = {};
+    if (flyouts) {
+        const ids = Object.keys(flyouts);
+        for (const fid of ids) {
+            flyoutStates[fid] = !!flyouts[fid].open;
+        }
+    }
+     
+    let tbContainerStyle: React.CSSProperties = { ...(containerStyle || {}) };
+    if (toolbar && toolbar.items && invokeCommandAction) {
+        if (vertical === true) {
+            tbContainerStyle.width = DEFAULT_TOOLBAR_SIZE;
+        } else {
+            tbContainerStyle.height = DEFAULT_TOOLBAR_SIZE;
+            tbContainerStyle.overflow = "none";/*"auto";*/
+        }
+        const items = (toolbar.items as any[]).map(tb => mapToolbarReference(tb, tbState, invokeCommandAction));
+        const childItems = processMenuItems(items);
+        return <ToolbarGISComponent vertical={vertical}
+            hideVerticalLabels={hideVerticalLabels}
+            childItems={childItems}
+            containerClass={containerClass}
+            containerStyle={tbContainerStyle}
+            flyoutStates={flyoutStates}
+            onOpenComponent={onOpenComponent}
+            onCloseComponent={onCloseComponent}
+            onOpenFlyout={onOpenFlyout}
+            onCloseFlyout={onCloseFlyout} />;
+    } else {
+        return <div />;
+    }
+}

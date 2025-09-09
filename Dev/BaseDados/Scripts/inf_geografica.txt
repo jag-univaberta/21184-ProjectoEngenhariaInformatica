@@ -1,0 +1,23 @@
+CREATE TABLE inf_geografica.cartografia
+(
+  rec_id serial NOT NULL,
+  nome character varying(256),
+  parent integer, 
+  ordem integer,
+  CONSTRAINT cartografia_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+); 
+
+
+CREATE TABLE inf_geografica.cartografialayers
+(
+  rec_id serial NOT NULL,
+  parent integer NOT NULL,
+  layer character varying(256),
+  CONSTRAINT cartografialayers_pkey PRIMARY KEY (rec_id)
+)
+WITH (
+  OIDS=FALSE
+);
