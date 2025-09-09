@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("g10DXF4")>
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("g10DXF4")>
-<Assembly: AssemblyCopyright("Copyright ©  2023")>
+<Assembly: AssemblyTitle("pccDXF4")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("JAG")>
+<Assembly: AssemblyProduct("pccDXF4")>
+<Assembly: AssemblyCopyright("Copyright ©  2025")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

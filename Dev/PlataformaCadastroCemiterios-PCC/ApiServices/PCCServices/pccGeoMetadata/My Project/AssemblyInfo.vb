@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("g10GeoMetadata4")>
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("g10GeoMetadata4")>
-<Assembly: AssemblyCopyright("Copyright ©  2023")>
+<Assembly: AssemblyTitle("pccGeoMetadata4")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("JAG")>
+<Assembly: AssemblyProduct("pccGeoMetadata4")>
+<Assembly: AssemblyCopyright("Copyright ©  2025")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
