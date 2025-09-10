@@ -43,8 +43,8 @@ import { setConstrucoesSelection } from '../../../utils/utils';
 			  { type: "separator" } ,
 			  { id: "eliminar_construcao",value: "Eliminar" } ,
 			  { type: "separator" } ,
-			  { id: "mover_construcao", value: "Mover Pretensão" }, 
-			  { type: "separator" } ,
+			  //{ id: "mover_construcao", value: "Mover Construção" }, 
+			  //{ type: "separator" } ,
 			  { id: "exportar_construcao",value: "Exportar Shapefile" } ,
 			]
 		});

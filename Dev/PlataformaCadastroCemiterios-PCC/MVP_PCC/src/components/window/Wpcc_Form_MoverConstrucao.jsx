@@ -181,7 +181,7 @@ useEffect(() => {
       windowRef.current = new WindowDHX({
         width: 900,
         height: 540,
-        title: 'Mover Pretensão', 
+        title: 'Mover Construção', 
         closable: true,
         movable: true,
         resizable: true,
