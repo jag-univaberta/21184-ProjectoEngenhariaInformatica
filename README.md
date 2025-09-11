@@ -60,7 +60,8 @@ Para configurar e executar o projeto localmente, siga estes passos.
 ### Frontend Projecto Visual Studio Code
 1.  Navegue até o diretório do `MVP_PCC`.
 2.  Instale as dependências: `npm install`
-3.  Configure as URLs das APIs no ficheiro `src/config.json`.
+3.  Configure as URLs das APIs no ficheiro `config.json`.
+3.  Criar o projecto `yarn run build:dev`.
 4.  Inicie a aplicação React: `npm start`
 
 
